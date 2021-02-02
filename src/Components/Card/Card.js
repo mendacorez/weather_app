@@ -15,7 +15,7 @@ const Card = (props) => {
         <h2>{Math.round(props.day.main.temp)} °C</h2>
         <div className="card-body">
           <button className={classes.weatherInfo}>
-            {props.day.weather[0].description}
+            {props.day.weather[0].description.toUpperCase()}
           </button>
         </div>
       </div>

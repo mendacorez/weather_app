@@ -1,15 +1,12 @@
-import React, { Component } from "react";
-import classes from "./App.module.css";
+import React from "react";
 import WeekContainer from "./Components/WeekContainer/WeekContainer";
 
-class App extends Component {
-  render() {
+const App = () => {
     return (
       <div className="App">
         <WeekContainer />
       </div>
     );
-  }
 }
 
 export default App;

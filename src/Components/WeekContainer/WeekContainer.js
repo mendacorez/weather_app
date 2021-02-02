@@ -24,12 +24,11 @@ const WeekContainer = () => {
   // APIkey 1: a9a3a62789de80865407c0452e9d1c27
   // APIkey 2: 3b9cc166b201dac3dd6e15f2b94b75d8 (schapoval)
   // APIkey 3: 580a8c9e5bc2c6096ac1483f52666388 (nure)
-
   // *! If you see a "Cannot read property 'filter' of undefined" error, wait a bit. These are problems from the Weather API
 
   const APIkey = "580a8c9e5bc2c6096ac1483f52666388";
-
   const weatherURL = `https://api.openweathermap.org/data/2.5/forecast?q=${places[activeCity]}&lang=en&units=metric&APPID=${APIkey}`;
+
   useEffect(() => {
     fetch(weatherURL)
       .then((res) => res.json())
@@ -47,7 +46,7 @@ const WeekContainer = () => {
 
   const timeList = () => {
     return (
-      <div style={{display: 'flex'}}>
+      <div style={{ display: "flex" }}>
         {time.map((hour, index) => {
           return (
             <Button
@@ -86,10 +85,11 @@ const WeekContainer = () => {
       </header>
       <nav className={classes.nav}>
         <div class={classes.cities}>{cityTable()}</div>
-
         {timeList()}
       </nav>
-      <span className={classes.cityName}>{places[activeCity]}, {activeTime.split('').splice(0, 5)}</span>
+      <span className={classes.cityName}>
+        {places[activeCity]}, {activeTime.split("").splice(0, 5)}
+      </span>
       <div className={classes.cards}>{formatCards()}</div>
     </div>
   );

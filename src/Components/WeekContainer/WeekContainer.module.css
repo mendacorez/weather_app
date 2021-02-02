@@ -5,7 +5,9 @@
 .header {
     max-width: 100%;
     padding: 30px 0;
-    background-color: #E9ECEF;
+    background-color: #aac7f3;
+    color: #464444;
+    box-shadow: 0 3px 3px 0 #aac7f3;
 }
 
 .title {

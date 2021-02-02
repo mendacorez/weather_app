@@ -1,19 +1,18 @@
-import React from 'react';
-import classes from './Button.module.css';
+import React from "react";
+import classes from "./Button.module.css";
 
 const Button = (props) => {
-  return(
-      <nav>
-         <button 
-      className={classes.buttonCity}
-      key = {props.key}
-      onClick = {props.onClick}
+  return (
+    <>
+      <button
+        className={classes.buttonCity}
+        key={props.key}
+        onClick={props.onClick}
       >
-          {props.buttonName}
-      </button> 
-      </nav>
-      
-  );  
-} 
+        {props.buttonName}
+      </button>
+    </>
+  );
+};
 
 export default Button;
