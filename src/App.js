@@ -1,30 +1,15 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import classes from "./App.module.css";
-import WeatherDisplay from "./Components/WeatherDisplay/WeatherDisplay";
+import WeekContainer from "./Components/WeekContainer/WeekContainer";
 
-const App = () => {
-  const places = ["Kharkiv", "Kiev", "Lviv", "London"];
-  const [activeCity, setActiveCity] = useState(0);
-  return (
-    <div className={classes.App}>
-      <header className={classes.appHeader}>
-        {places.map((city, index) => {
-          return (
-            <button
-              key={index}
-              onClick={() => {
-                setActiveCity(index);
-              }}
-            >
-              {city}
-            </button>
-          );
-        })}
-      </header>
-
-      <WeatherDisplay key={activeCity} name={places[activeCity]} />
-    </div>
-  );
-};
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <WeekContainer />
+      </div>
+    );
+  }
+}
 
 export default App;
