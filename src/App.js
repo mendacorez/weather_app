@@ -1,12 +1,13 @@
-import React from "react";
+import React, { Component } from "react";
 import WeekContainer from "./Components/WeekContainer/WeekContainer";
+import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 
-const App = () => {
+export default class App extends Component {
+  render() {
     return (
       <div className="App">
-        <WeekContainer />
+          <WeekContainer />
       </div>
     );
+  }
 }
-
-export default App;

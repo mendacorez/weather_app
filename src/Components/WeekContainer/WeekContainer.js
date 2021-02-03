@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ErrorBoundary from "../../ErrorBoundary/ErrorBoundary";
 import Card from "../Card/Card";
 import Button from "../UI/Button";
 import classes from "./WeekContainer.module.css";
@@ -26,7 +27,7 @@ const WeekContainer = () => {
   // APIkey 3: 580a8c9e5bc2c6096ac1483f52666388 (nure)
   // *! If you see a "Cannot read property 'filter' of undefined" error, wait a bit. These are problems from the Weather API
 
-  const APIkey = "580a8c9e5bc2c6096ac1483f52666388";
+  const APIkey = "3b9cc166b201dac3dd6e15f2b94b75d8";
   const weatherURL = `https://api.openweathermap.org/data/2.5/forecast?q=${places[activeCity]}&lang=en&units=metric&APPID=${APIkey}`;
 
   useEffect(() => {
@@ -36,6 +37,7 @@ const WeekContainer = () => {
         const dailyData = data.list.filter((reading) =>
           reading.dt_txt.includes(activeTime)
         );
+        console.log(data.list);
         setDays(dailyData);
       });
   });
@@ -77,21 +79,23 @@ const WeekContainer = () => {
   };
 
   return (
-    <div className={classes.WeekContainer}>
-      <header className={classes.header}>
-        <span className={classes.title}>
-          Weather forecast for the next 5 days
+    <ErrorBoundary>
+      <div className={classes.WeekContainer}>
+        <header className={classes.header}>
+          <span className={classes.title}>
+            Weather forecast for the next 5 days
+          </span>
+        </header>
+        <nav className={classes.nav}>
+          <div class={classes.cities}>{cityTable()}</div>
+          {timeList()}
+        </nav>
+        <span className={classes.cityName}>
+          {places[activeCity]}, {activeTime.split("").splice(0, 5)}
         </span>
-      </header>
-      <nav className={classes.nav}>
-        <div class={classes.cities}>{cityTable()}</div>
-        {timeList()}
-      </nav>
-      <span className={classes.cityName}>
-        {places[activeCity]}, {activeTime.split("").splice(0, 5)}
-      </span>
-      <div className={classes.cards}>{formatCards()}</div>
-    </div>
+        <div className={classes.cards}>{formatCards()}</div>
+      </div>
+    </ErrorBoundary>
   );
 };
 
