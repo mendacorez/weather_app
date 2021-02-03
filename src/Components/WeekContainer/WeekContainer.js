@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import ErrorBoundary from "../../ErrorBoundary/ErrorBoundary";
 import Card from "../Card/Card";
 import Button from "../UI/Button";
 import classes from "./WeekContainer.module.css";
@@ -79,7 +78,6 @@ const WeekContainer = () => {
   };
 
   return (
-    <ErrorBoundary>
       <div className={classes.WeekContainer}>
         <header className={classes.header}>
           <span className={classes.title}>
@@ -95,7 +93,6 @@ const WeekContainer = () => {
         </span>
         <div className={classes.cards}>{formatCards()}</div>
       </div>
-    </ErrorBoundary>
   );
 };
 
